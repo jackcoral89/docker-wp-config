@@ -10,10 +10,10 @@ services:
     ports:
       - 4500:80
     environment:
-      WORDPRESS_DB_HOST: mysql
-      WORDPRESS_DB_USER: db_user
-      WORDPRESS_DB_PASSWORD: db_password
-      WORDPRESS_DB_NAME: db_name
+      DB_HOST: mysql
+      DB_USER: db_user
+      DB_PASSWORD: db_password
+      DB_NAME: db_name
     volumes:
       - ./docker/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./public:/var/www/html

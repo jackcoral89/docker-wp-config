@@ -1,1 +1,45 @@
+version: '3.1'
+
+services:
+
+  # Wordpress
+  wordpress:
+    build:
+      context: ./docker
+      dockerfile: Dockerfile
+    ports:
+      - 4500:80
+    environment:
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: db_user
+      WORDPRESS_DB_PASSWORD: db_password
+      WORDPRESS_DB_NAME: db_name
+    volumes:
+      - ./docker/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
+      - ./public:/var/www/html
+
+  # MySql
+  mysql:
+    image: mysql:5.7
+    ports:
+      - 4501:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+
+  # PhpMyAdmin
+  phpmyadmin:
+    image: phpmyadmin/phpmyadmin:latest
+    links:
+      - mysql
+    ports:
+      - 4502:80
+    environment:
+      PMA_HOST: mysql
+      PMA_USER: root
+      PMA_PASSWORD: root
+
+volumes:
+  wordpress:
+  mysql:
+  phpmyadmin:
 

@@ -15,7 +15,6 @@ services:
       WORDPRESS_DB_PASSWORD: root
       WORDPRESS_DB_NAME: docker_wp_config
     volumes:
-      - ./docker/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./public:/var/www/html
 
   # MySql
@@ -26,6 +25,7 @@ services:
     environment:
       MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: docker_wp_config
 
   # PhpMyAdmin
   phpmyadmin:

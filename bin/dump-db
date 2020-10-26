@@ -1,4 +1,4 @@
-#!/usr/bin/env bash
+#!/usr/bin/sh
 this_dir=$(cd `dirname $0` && pwd)
 file="$this_dir/../data/dump.sql"
 

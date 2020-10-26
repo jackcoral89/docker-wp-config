@@ -1,8 +1,13 @@
-this_dir=$(cd `dirname $0` && pwd)
-file="./data/dump.sql"
+
+today=`date '+%Y_%m_%d__%H_%M_%S'`;
+
+filename="db_dumb_$today.sql";
+
+file="../data/dump.sql";
 
 # Create dump file
-# cmd='exec mysqldump "$MYSQL_DATABASE" -uroot -p"$MYSQL_ROOT_PASSWORD"'
-cmd='mysqldump -u root -proot docker_wp_config'
+cmd='mysqldump -u "$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" "$WORDPRESS_DB_NAME"';
 docker-compose exec mysql sh -c "$cmd" > $file
+
+echo "🍻🍻 Nice! 🍻🍻 Dump exported: ./data/$filename";
  

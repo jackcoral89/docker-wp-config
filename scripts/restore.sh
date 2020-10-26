@@ -1,8 +1,7 @@
-#!/usr/bin/env bash 
 file=$1
 if [ -z "$file" ]; then
-    echo "USAGE: restore-db <filename>"
-    exit 1;
+	echo "USAGE: restore-db <filename>"
+	exit 1;
 fi
 
 # Restore database to db container

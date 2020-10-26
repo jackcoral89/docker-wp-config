@@ -8,12 +8,12 @@ services:
       context: ./docker
       dockerfile: Dockerfile
     ports:
-      - 4500:80
+      - 7500:80
     environment:
-      DB_HOST: mysql
-      DB_USER: db_user
-      DB_PASSWORD: db_password
-      DB_NAME: db_name
+      WORDPRESS_DB_HOST: mysql
+      WORDPRESS_DB_USER: root
+      WORDPRESS_DB_PASSWORD: root
+      WORDPRESS_DB_NAME: docker_wp_config
     volumes:
       - ./docker/php.conf.ini:/usr/local/etc/php/conf.d/conf.ini
       - ./public:/var/www/html
@@ -22,8 +22,9 @@ services:
   mysql:
     image: mysql:5.7
     ports:
-      - 4501:3306
+      - 7501:3306
     environment:
+      MYSQL_USER: root
       MYSQL_ROOT_PASSWORD: root
 
   # PhpMyAdmin
@@ -32,7 +33,7 @@ services:
     links:
       - mysql
     ports:
-      - 4502:80
+      - 7502:80
     environment:
       PMA_HOST: mysql
       PMA_USER: root

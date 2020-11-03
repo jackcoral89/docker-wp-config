@@ -6,8 +6,8 @@ dir="../data";
 filename="db_dumb_$today.sql";
 
 # Create dump file
-cmd='mysqldump -u "$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" "$WORDPRESS_DB_NAME"';
+cmd='mysqldump --user "$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" --databases "$MYSQL_DATABASE"';
 docker-compose exec mysql sh -c "$cmd" > $dir/$filename
 
-echo "🍻🍻 Nice! 🍻🍻 Dump exported: ./data/$filename";
+echo "🍻🍻 Nice! 🍻🍻 Dump done: ./data/$filename";
  

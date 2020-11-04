@@ -11,6 +11,6 @@
 # cmd='mysqldump -u "$MYSQL_USER" -p"$MYSQL_ROOT_PASSWORD" "$WORDPRESS_DB_NAME"';
 # docker-compose exec mysql sh -c "$cmd" > $dir/$filename
 
-sed -i 's/http:\/\/localhost:7500/https:\/\/www.example.com/g' /data/db.sql
+# sed -i 's/http:\/\/localhost:7500/https:\/\/www.example.com/g' /data/db.sql
 
 # echo "🍻🍻 Nice! 🍻🍻 Find & replace done: ./data/$filename";
